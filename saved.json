@@ -3,7 +3,7 @@
     "window": "b",
     "mute": false,
     "movemode": "keys",
-    "highscore": 150,
+    "highscore": 0,
     "totalscore": 0,
     "gamesplayed": 0
 }
