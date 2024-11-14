@@ -219,7 +219,7 @@ jtxt_alpha = 0
 played_jris2 = False
 intropart = 1
 propre_alpha = 0
-url = "https://raw.githubusercontent.com/Jasperredis/lifelinepy.github.io/refs/heads/main/website/updates.json" #! This is a placeholder!
+url = "https://raw.githubusercontent.com/Jasperredis/lifelinepy.github.io/refs/heads/main/website/updates.json"
 score = 0
 
 # *Set up time related variables
@@ -504,7 +504,7 @@ while running:
                     if version < float(upd['version']):
                         screen.blit(s_upd_button, (570, 450))
                         if keys[pygame.K_u]:
-                            open_url = "https://google.com" #! This is a placeholder!
+                            open_url = "https://jasperredis.github.io/lifelinepy.github.io/"
                             webbrowser.open(open_url)
             if not connection:
                 img_rect = s_nointernet_img.get_rect()
