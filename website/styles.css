@@ -1,0 +1,122 @@
+.lll {
+    position: absolute;
+    left: 50px;
+    top: 60px;
+    height: 200px;
+}
+.lldesc {
+    position: absolute;
+    left: 50px;
+    top: 240px;
+    font-size: 20px;
+    font-family:'Dubai';
+    color: #000000
+}
+.about {
+    position: absolute;
+    left: 30px;
+    width: 570px;
+    height: 740px;
+    background-color: #fff5c6;
+    top: 0;
+    border-radius: 2%;
+}
+.jris {
+    position: absolute;
+    left: 30px;
+    top: 770px;
+    border-radius: 5%;
+    height: 150px;
+    animation: spin 4s linear infinite;
+}
+
+/* Define the spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg); /* Start from 0 degrees */
+    }
+    to {
+        transform: rotate(360deg); /* Rotate to 360 degrees */
+    }
+}
+
+.jristxt {
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #a95f5c;
+    position: absolute;
+    left: 170px;
+    top: 770px;
+}
+
+.installtxt {
+    position: absolute;
+    left: 640px;
+    top: 0px;
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.install_links {
+    position: absolute;
+    left: 640px;
+    top: 100px;
+    font-size: 20px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.installtxt {
+    position: absolute;
+    left: 640px;
+    top: 0px;
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.github_link {
+    position: absolute;
+    left: 640px;
+    top: 260px;
+    font-size: 20px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.githubtxt {
+    position: absolute;
+    left: 640px;
+    top: 160px;
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.osttxt {
+    position: absolute;
+    left: 640px;
+    top: 280px;
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.ostlink {
+    position: absolute;
+    left: 640px;
+    top: 380px;
+    font-size: 20px;
+    font-family:'Dubai';
+    color: #000000
+}
+
+.screenshotstxt {
+    position: absolute;
+    left: 840px;
+    top: 0px;
+    font-size: 50px;
+    font-family:'Dubai';
+    color: #000000
+}
