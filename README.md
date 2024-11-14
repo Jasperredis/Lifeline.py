@@ -1,6 +1,7 @@
 # Lifeline.py 1.0
 This is a guide to playing and interacting with Lifeline.py, version 1.0!  
 Note that this **IS** a stable release, yet it does not have all of the features originally intended for this game.
+https://jasperredis.github.io/lifelinepy.github.io/
 
 # Title Screen
 * **Start:** Starts a game. Kind of obvious.
