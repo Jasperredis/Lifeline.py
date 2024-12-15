@@ -6,6 +6,7 @@
 * pygame.Freetype usage
 * Lazy loading
 * A launcher for the game (possibly v1.2)
+* Texture pack support (possibly v1.2)
 # Already added in Lifeline.py v1.1:
 * Minimize/fullscreen button
 * Better Updates tab
