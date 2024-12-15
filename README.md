@@ -8,7 +8,6 @@ Important info for the GitHub repo! Remember:
 * If there is any reason that your contribution *cannot* make it into the repo, you **WILL** be informed!
 * This repo **ALSO** contains the website and things that the game fetches from the web.
 * Please do **NOT** modify anything from the `fetch` folder!
-## Other cool info!
 * Check [PACKAGED-README.md](PACKAGED-README.md) for what this game even is!
-* i forgor what i was gonna put here lol
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+* Check [WHATSNEXT.md](WHATSNEXT.md) for what is planned next!
+* This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
