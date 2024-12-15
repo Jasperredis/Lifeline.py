@@ -11,4 +11,4 @@ Important info for the GitHub repo! Remember:
 ## Other cool info!
 * Check [PACKAGED-README.md](PACKAGED-README.md) for what this game even is!
 * i forgor what i was gonna put here lol
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
