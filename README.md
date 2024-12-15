@@ -12,6 +12,7 @@ This is the repository-specific README for Lifeline.py, providing important info
 - **Please do NOT modify anything in the `fetch` folder.**
 - For more details on what this game is, check [PACKAGED-README.md](PACKAGED-README.md).
 - To see what’s planned next, check [WHATSNEXT.md](WHATSNEXT.md).
+- The Linux releases run the source code file with Python.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
