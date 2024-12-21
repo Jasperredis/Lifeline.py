@@ -7,6 +7,7 @@
 - Lazy loading
 - A launcher for the game (possibly in v1.2)
 - Texture pack support (possibly in v1.2)
+- Debugging tools
 # Already Added in Lifeline.py v1.1
 - Minimize/fullscreen button
 - Improved Updates tab
