@@ -1,3 +1,12 @@
+
+#* /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
+#* |  Lifeline.py - v1.1 Beta 1.2                         |
+#* |  Last updated: 12/21/2024                            |
+#* |  by jasperredis                                      |
+#* |  This is a file of general-purpose set of functions  |
+#* |  in Lifeline.py.                                     |
+#* \______________________________________________________/
+
 import plyer
 from plyer import notification
 import pygame
