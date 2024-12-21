@@ -1,3 +1,11 @@
+
+#* /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
+#* |  Lifeline.py - v1.1 Beta 1.2                         |
+#* |  Last updated: 12/21/2024                            |
+#* |  by jasperredis                                      |
+#* |  This is the assets manager file for Lifeline.py.    |
+#* \______________________________________________________/
+
 import pygame
 import colorama
 from colorama import Fore, Back, Style, init
