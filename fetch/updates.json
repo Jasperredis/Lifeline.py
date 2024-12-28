@@ -2,9 +2,9 @@
     "title": "Beta",
     "version": "1.1",
     "date": "xx/yy/zzzz",
-    "pgs": 3,
+    "pgs": 2,
     "1": {
-        "lns": 2,
+        "lns": 3,
         "1": "This is just a testing release. Do you expect this to be useful?",
         "2": "Though, it still fetches from the web to ensure that that works.",
         "3": "Plus, you can go to the next page to show the new pages feature."
