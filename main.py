@@ -1,7 +1,7 @@
 
 #* /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
-#* |  Lifeline.py - v1.1 Beta 1.2                         |
-#* |  Last updated: 2024-12-21                            |
+#* |  Lifeline.py - v1.1 Beta 2.1                         |
+#* |  Last updated: 2024-12-28                            |
 #* |  Author: jasperredis                                 |
 #* |                                                      |
 #* |  This is the main source file for Lifeline.py.       |
