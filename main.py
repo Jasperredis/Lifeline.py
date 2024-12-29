@@ -31,7 +31,6 @@ import subprocess
 # Import modules
 import assets
 from assets import ld_img, ld_aud, ld_imgc, unld_img, ld_audc, unld_aud
-import general
 
 def killapplication():
     pygame.quit()
