@@ -1,9 +1,14 @@
 
 #* /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
 #* |  Lifeline.py - v1.1 Beta 1.2                         |
-#* |  Last updated: 12/21/2024                            |
-#* |  by jasperredis                                      |
+#* |  Last updated: 2024-12-21                            |
+#* |  Author: jasperredis                                 |
+#* |                                                      |
 #* |  This is the assets manager file for Lifeline.py.    |
+#* |                                                      |
+#* |  License: MIT License                                |
+#* |  See the LICENSE file in the project root for more   |
+#* |  information.                                        |
 #* \______________________________________________________/
 
 import pygame
@@ -179,7 +184,7 @@ def unld_img(categ):
             del updatet_img 
             del updatef_img
         elif categ == "gameplay":
-            global bar_img, plr_img, L1_img, L2_img, L3_img, L4_img, L5_img, enemy_img, heal_img, stop_img, pause_1_img, pause_2_img, pause_3_img, pause_barcontent, gameover_img, gameover_barcontent
+            global bar_img, plr_img, L1_img, L2_img, L3_img, L4_img, L5_img, enemy_img, heal_img, stop_img, pause_1_img, pause_2_img, pause_3_img, pause_barcontent, gameover_img, gameover_barcontent, protected_eff
             del bar_img
             del plr_img 
             del L1_img
