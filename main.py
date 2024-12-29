@@ -1,9 +1,14 @@
 
 #* /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
 #* |  Lifeline.py - v1.1 Beta 1.2                         |
-#* |  Last updated: 12/21/2024                            |
-#* |  by jasperredis                                      |
-#* |  This is the main source code file for Lifeline.py!  |
+#* |  Last updated: 2024-12-21                            |
+#* |  Author: jasperredis                                 |
+#* |                                                      |
+#* |  This is the main source file for Lifeline.py.       |
+#* |                                                      |
+#* |  License: MIT License                                |
+#* |  See the LICENSE file in the project root for more   |
+#* |  information.                                        |
 #* \______________________________________________________/
 
 # Import libraries
@@ -21,38 +26,44 @@ import webbrowser
 import colorama
 from colorama import Fore, Back, Style, init
 import gc
-try:
-    import plyer
-    from plyer import notification
-except Exception as e:
-    messagebox.showinfo("Error", "Could not import plyer. Can probably resume without it.")
 import platform
 import subprocess
 # Import modules
 import assets
 from assets import ld_img, ld_aud, ld_imgc, unld_img, ld_audc, unld_aud
 import general
-from general import sysnotif, kill_application, msgbx
 
-def initSave():
-    global window, mute, movmod, highscore, totalscore, gamesplayed, alerts, seen_upd, lazyload, bg
-    bg = sinf['bg']
-    # A list of all background numbers and their corresponding colours can be found in the main loop where the background is rendered
-    window = sinf['window']  # Controls whether the window is windowed borderless or fullscreen, defaulted to windowed borderless
-    mute = sinf['mute']  # Controls whether audio is muted or not, defaulted to false
-    movmod = sinf['movemode']  # Controls whether the player moves with WASD or their mouse, defaulted to WASD
-    highscore = sinf['highscore']  # Highscore, self-explanatory.
-    totalscore = sinf['totalscore']  # All scores ever gotten, added together.
-    gamesplayed = sinf['gamesplayed']  # How many games the user has played.
-    alerts = sinf['allow_alerts']  # Whether alerts are allowed.
-    seen_upd = sinf['seen_updates']
-    lazyload = sinf['lazyloading']
-    txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Style.RESET_ALL + "Loaded save data")
-    print(txtprnt)
+def killapplication():
+    pygame.quit()
+    sys.exit()
+
+def msgbx(title, description, okyn, alerts):
+    if alerts:
+        if okyn == "yn":
+            return messagebox.askyesno(title, description)
+        else:
+            messagebox.showinfo(title, description)
+
+with open('json/saved.json', 'r') as file:
+    sinf = json.load(file)
+bg = sinf['bg']
+# A list of all background numbers and their corresponding colours can be found in the main loop where the background is rendered
+window = sinf['window']  # Controls whether the window is windowed borderless or fullscreen, defaulted to windowed borderless
+mute = sinf['mute']  # Controls whether audio is muted or not, defaulted to false
+movmod = sinf['movemode']  # Controls whether the player moves with WASD or their mouse, defaulted to WASD
+highscore = sinf['highscore']  # Highscore, self-explanatory.
+totalscore = sinf['totalscore']  # All scores ever gotten, added together.
+gamesplayed = sinf['gamesplayed']  # How many games the user has played.
+alerts = sinf['allow_alerts']  # Whether alerts are allowed.
+seen_upd = sinf['seen_updates']
+lazyload = sinf['lazyloading']
+autosave = sinf['autosave']
+txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Style.RESET_ALL + "Loaded save data")
+print(txtprnt)
 
 def modifySave():
     try:
-        global window, mute, movmod, highscore, totalscore, gamesplayed, alerts, seen_upd, lazyload, bg
+        global window, mute, movmod, highscore, totalscore, gamesplayed, alerts, seen_upd, lazyload, bg, autosave
         txtprnt = (Fore.MAGENTA + "OPENING " + Fore.LIGHTCYAN_EX + "json/saved.json" + Style.RESET_ALL + "...")
         print(txtprnt)
         with open('json/saved.json', 'w') as file:
@@ -68,7 +79,8 @@ def modifySave():
                 "gamesplayed": gamesplayed,
                 "allow_alerts": alerts,
                 "seen_updates": seen_upd,
-                "lazyloading": lazyload
+                "lazyloading": lazyload,
+                "autosave": autosave
             }
             txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Fore.MAGENTA + "Created dictionary!")
             print(txtprnt)
@@ -78,21 +90,8 @@ def modifySave():
             txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Fore.MAGENTA + "Saved data!")
             print(txtprnt)
     except Exception as e:
-        txtprnt = (Fore.LIGHTRED_EX + "ERROR: " + Fore.MAGENTA + "could not save data because: " + Fore.LIGHTRED_EX + e)
+        txtprnt = (Fore.LIGHTRED_EX + "ERROR: " + Fore.MAGENTA + "could not save data because: " + Fore.LIGHTRED_EX + f"{e}")
         print(txtprnt)
-    
-def loadSave():
-    global sinf
-    try:
-        with open("json/saved.json", 'r') as file:
-            sinf = json.load(file)
-            txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Fore.LIGHTCYAN_EX + "opened json/saved.json and saved to variable" + Style.RESET_ALL + "!")
-            print(txtprnt)
-    except Exception as e:  # Close the program upon error and provide reason
-        messagebox.showinfo("Error", f"Could not load saved.json because of provided reason: {e}")
-        kill_application()
-loadSave()
-initSave()
 
 def makeDisp():
     global screen
@@ -101,8 +100,7 @@ def makeDisp():
     else:  # else is to prevent unnecessary use of an elif and a possible fallback (this is fullscreen)
         screen = pygame.display.set_mode((800, 600), pygame.FULLSCREEN)  # 800x600 window
 
-sysnotif("Lifeline.py", "Welcome to Lifeline.py!", 5)
-version = 1.0
+version = 1.1
 
 #* Check OS
 txtprnt = (Fore.MAGENTA + "CHECKING OS...")
@@ -125,17 +123,11 @@ pygame.mixer.init()
 pygame.mouse.set_visible(False)
 init(autoreset=True)
 
-# *Load saved data
-txtprnt = (Fore.MAGENTA + "OPENING:" + Fore.LIGHTCYAN_EX + " json/saved.json" + Style.RESET_ALL + "...")
-print(txtprnt)
-loadSave()
-
 # *Set settings to preferences (previous settings)
 txtprnt = (Fore.MAGENTA + "LOADING SAVE DATA" + Style.RESET_ALL + "...")
 print(txtprnt)
 if bg < 1 or bg > 11:
     bg = 7  # Default to pink if invalid
-initSave()
 print(txtprnt)
 
 # *Set up the display
@@ -228,7 +220,7 @@ jtxt_alpha = 0
 played_jris2 = False
 intropart = 1
 propre_alpha = 0
-url = "https://raw.githubusercontent.com/Jasperredis/LifelinePyTest/refs/heads/main/updates.json"
+url = "https://raw.githubusercontent.com/Jasperredis/Lifeline.py/refs/heads/main/fetch/updates.json"
 score = 0
 latestVer = True  # Tells if you're on the latest version. True by default so that update button doesn't render without Internet connection.
 grid_size = 3
@@ -236,6 +228,7 @@ tick = 0
 sel_kbnd = ""
 gctk = 0 # Tick for garbace collection
 gccount = 0 # Garbage collection count
+autosavet = 0
 
 # * Set up time-related variables
 clock = pygame.time.Clock()  # Sets up the Pygame clock
@@ -250,7 +243,6 @@ vol_last_key_prestime = 0
 vol_key_delay = 200
 
 running = True
-assets.intro2_sfx.play()
 lnscan = 0
 
 def enemy():
@@ -282,7 +274,7 @@ def fetchUpdates():
         txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Fore.MAGENTA + "JSON at " + url + " " + Style.RESET_ALL + "saved to variable!")
         print(txtprnt)
     except requests.exceptions.RequestException as e:
-        txtprnt = (Fore.LIGHTRED_EX + "ERROR: " + Fore.MAGENTA + f"could not fetch JSON at {url} because: " + Fore.LIGHTRED_EX + e)
+        txtprnt = (Fore.LIGHTRED_EX + "ERROR: " + Fore.MAGENTA + f"could not fetch JSON at {url} because: " + Fore.LIGHTRED_EX + str(e))
         print(txtprnt)
 
 def isconnected():
@@ -365,10 +357,9 @@ if connection:
 
 def byebye():
     global running
-    sysnotif("Lifeline.py", "Goodbye! Thanks for playing Lifeline.py!", 5)
     modifySave()
     running = False
-    kill_application()
+    killapplication()
 
 def ingnotif(imgt, imgf, pos): # pos can be tl (top left), tr (top right), bl (bottom left), or br (bottom right)
     notif_rect = imgt.get_rect()
@@ -407,6 +398,7 @@ def play_music():
             current_music = None  # Reset the current music state
 
 # *Main Loop
+assets.intro2_sfx.play()
 while running:
         # Update dynamic variables
         ogmouse_x, ogmouse_y = pygame.mouse.get_pos()
@@ -422,7 +414,7 @@ while running:
             if event.type == pygame.QUIT:
                 byebye()
 
-        if keys[pygame.K_LCTRL] and keys[pygame.K_LSHIFT] and keys[pygame.K_LALT] and keys[pygame.K_r]:
+        if keys[pygame.K_LCTRL] and keys[pygame.K_LSHIFT] and keys[pygame.K_q]:
             result = subprocess.run(["bash", "/home/jaspr/CodeProjects/LifelinePy/run.sh"], capture_output=True, text=True)
             byebye()
 
@@ -435,12 +427,26 @@ while running:
         else:
             gctk += 1
 
+        #* Perform autosave
+        if autosavet >= 300:
+            autosavet = 0
+            txtprnt = (Fore.MAGENTA + "STARTING " + Fore.LIGHTCYAN_EX + "Autosave...")
+            print(txtprnt)
+            autosaving = True
+            modifySave()
+            autosaving = False
+            txtprnt = (Fore.LIGHTGREEN_EX + "COMPLETED! " + Fore.LIGHTCYAN_EX + "(MAYBE) Autosave")
+            print(txtprnt)
+        else:
+            autosavet += 1
+
         # *Screenshot script
         if keys[pygame.K_F2] and (current_time - last_key_prestime_f2 >= key_delay_f2):
             ssf = f"screenshots/{int(time.time())}.png"
             pygame.image.save(screen, ssf)
             last_key_prestime_f2 = current_time
             assets.screenshot_sfx.play()
+            print("Took screenshot 'ssf'!")
 
         # *Fill screen
         if state == "game":  # Check if the state is in gameplay to make colour changes
@@ -665,7 +671,6 @@ while running:
                         updb_rect.y = 545
                         if mb[0] and (current_time - last_key_prestime >= key_delay): # Avoid repeatedly triggering:
                             webbrowser.open("https://jasperredis.github.io/Lifeline.py")
-                            sysnotif("Lifeline.py", "Not getting the browser window? Try opening it manually, as it may have not maximised the window.", 5)
                             last_key_prestime = current_time
                     screen.blit(assets.upd_button, (updb_rect))
                 #* Add clickable buttons
@@ -733,9 +738,11 @@ while running:
                 if bacb_rect.collidepoint(mouse_x, mouse_y): # Check if mouse is touching hitbox:
                     bacb_rect.y = 545
                     if mb[0]:
-                        ld_imgc("tts1")
+                        if lazyload:
+                            ld_imgc("tts1")
                         area = 1
-                        unld_img("updates")
+                        if lazyload:
+                            unld_img("updates")
                         assets.sel_sfx.play()
                     else:
                         screen.blit(assets.bacb, (bacb_rect))
@@ -743,7 +750,7 @@ while running:
                     screen.blit(assets.bacb, (bacb_rect))
 
                 if not seen_upd: # Show notification
-                    if ingnotif(updnt, updnf, "tl"):
+                    if ingnotif(assets.updnt, assets.updnf, "tl"):
                         seen_upd = True
 
             elif area == 4: #* 4 is controls
@@ -893,7 +900,12 @@ while running:
                 screen.blit(text_surface, (85, 475))
                 #* Take key input
                 if keys[pygame.K_ESCAPE]:
+                    if lazyload:
+                        ld_imgc("options")
                     area = 2
+                    sel = 1
+                    if lazyload:
+                        unld_img("controls")
                     assets.sel_sfx.play()
 
             # *Menu Navigation
@@ -920,30 +932,40 @@ while running:
             # Select options
             if keys[pygame.K_RETURN] and (current_time - last_key_prestime >= key_delay): # Avoid repeatedly triggering
                 if sel == 1 and area == 1: # Start button
-                    ld_imgc("gameplay")
-                    ld_audc("gameplay")
+                    if lazyload:
+                        ld_imgc("gameplay")
+                        ld_audc("gameplay")
                     initGame()
-                    unld_img("ttsALL")
-                    unld_img("tts1")
+                    if lazyload:
+                        unld_img("ttsALL")
+                        unld_img("tts1")
                 if sel == 2 and area == 1: # Background colour
-                    ld_imgc("options")
+                    if lazyload:
+                        ld_imgc("options")
                     area = 2 # 2 is options
                     sel = 1
-                    unld_img("tts1")
+                    if lazyload:
+                        unld_img("tts1")
                 if sel == 3 and area == 1: # Updates button
-                    ld_imgc("updates")
+                    if lazyload:
+                        ld_imgc("updates")
                     area = 3 # 3 is updates
                     sel = 1
                     pg = 1
-                    unld_img("tts1")
+                    if lazyload:
+                        unld_img("tts1")
                 elif sel == 3 and area == 2: # Back button in options
-                    ld_imgc("tts1")
+                    if lazyload:
+                        ld_imgc("tts1")
                     area = 1 # 1 is the main page
-                    unld_img("options")
+                    if lazyload:
+                        unld_img("options")
                 elif sel == 2 and area == 2:
-                    ld_imgc("controls")
-                    unld_img("tts1")
+                    if lazyload:
+                        ld_imgc("controls")
                     area = 4 # 4 is controls
+                    if lazyload:
+                        unld_img("options")
                     sel = 1
                 if area == 4:
                     if sel == 1:
@@ -1166,7 +1188,11 @@ while running:
                         if result:
                             initGame()
                     elif sel == 3:
+                        ld_imgc("ttsALL")
+                        ld_imgc("tts1")
                         state = "title"
+                        if lazyload:
+                            unld_img("gameplay")
                         paused = False
                         sel = 1
                     assets.sel_sfx.play()
