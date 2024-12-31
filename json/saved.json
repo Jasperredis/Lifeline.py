@@ -1,9 +1,13 @@
 {
-    "bg": 7,
+    "bg": 11,
     "window": "b",
     "mute": false,
     "movemode": "keys",
-    "highscore": 0,
-    "totalscore": 0,
-    "gamesplayed": 0
+    "highscore": 450,
+    "totalscore": 950,
+    "gamesplayed": 12,
+    "allow_alerts": true,
+    "seen_updates": true,
+    "lazyloading": false,
+    "autosave": true
 }
