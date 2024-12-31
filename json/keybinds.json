@@ -1,0 +1,13 @@
+{
+    "keybinds": {
+        "mv_l": "A",
+        "mv_r": "D",
+        "pause": "ESC.",
+        "nav_up": "UP",
+        "nav_dn": "DWN.",
+        "nav_lf": "<--",
+        "nav_rt": "-->",
+        "m_sel": "ENT.",
+        "p_sel": "SPC."
+    }
+}
