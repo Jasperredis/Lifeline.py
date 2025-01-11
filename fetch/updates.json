@@ -1,16 +1,10 @@
 {
-    "title": "Beta",
+    "title": "No Updates",
     "version": "1.1",
-    "date": "xx/yy/zzzz",
-    "pgs": 2,
+    "date": "2025-01-11",
+    "pgs": 1,
     "1": {
-        "lns": 3,
-        "1": "This is just a testing release. Do you expect this to be useful?",
-        "2": "Though, it still fetches from the web to ensure that that works.",
-        "3": "Plus, you can go to the next page to show the new pages feature."
-    },
-    "2": {
         "lns": 1,
-        "1": "hi lol"
+        "1": "This is the latest release of Lifeline.py!",
     }
 }
