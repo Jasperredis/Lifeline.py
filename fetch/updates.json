@@ -4,7 +4,8 @@
     "date": "2025-01-11",
     "pgs": 1,
     "1": {
-        "lns": 1,
-        "1": "You are on latest release of Lifeline.py!"
+        "lns": 2,
+        "1": "You are on latest release of Lifeline.py!",
+        "2": "1.1-b2.1"
     }
 }
