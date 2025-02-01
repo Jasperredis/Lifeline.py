@@ -1,7 +1,7 @@
 ![Lifeline.py Logo](https://raw.githubusercontent.com/Jasperredis/Lifeline.py/refs/heads/main/github/llp-logo.png)
 
 # Welcome to *Lifeline.py*
-> **Note:** This is **NOT** the README that comes with the regular install. To find that, please check [PACKAGED-README.md](PACKAGED-README.md).
+> **Note:** This is **NOT** the README that comes with the regular install. To find that, please check [PACKAGED-README.md](github/PACKAGED-README.md).
 
 ## What is this README for?
 This is the repository-specific README for Lifeline.py, providing important information about the development process:  
