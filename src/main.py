@@ -413,10 +413,6 @@ while running:
             if event.type == pygame.QUIT:
                 byebye()
 
-        if keys[pygame.K_LCTRL] and keys[pygame.K_LSHIFT] and keys[pygame.K_q]:
-            result = subprocess.run(["bash", "/home/jaspr/CodeProjects/LifelinePy/run.sh"], capture_output=True, text=True)
-            byebye()
-
         #* Perform garbage collection
         if gctk >= 300:
             gc.collect() # Force collection
