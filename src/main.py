@@ -27,7 +27,6 @@ import colorama
 from colorama import Fore, Back, Style, init
 import gc
 import platform
-import subprocess
 # Import modules
 import assets
 from assets import ld_img, ld_aud, ld_imgc, unld_img, ld_audc, unld_aud
