@@ -10,8 +10,8 @@ This is the repository-specific README for Lifeline.py, providing important info
 - If there is any reason your contribution *cannot* be included in the repo, you **WILL** be informed.
 - This repo **also** contains assets for the website and other things that the game fetches from the web.
 - **Please do NOT modify anything in the `fetch` folder.**
-- For more details on what this game is, check [PACKAGED-README.md](PACKAGED-README.md).
-- To see what’s planned next, check [WHATSNEXT.md](WHATSNEXT.md).
+- For more details on what this game is, check [PACKAGED-README.md](github/PACKAGED-README.md).
+- To see what’s planned next, check [WHATSNEXT.md](github/WHATSNEXT.md).
 - 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
