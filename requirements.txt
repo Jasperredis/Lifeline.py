@@ -1,0 +1,4 @@
+pygame
+requests
+colorama
+# Note: Some systems may require other libraries to be installed (e.g., tkinter).
