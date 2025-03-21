@@ -5,7 +5,8 @@
     "pgs": 1,
     "1": {
         "lns": 2,
-        "1": "YOU ARE ON THE LATEST VERSION OF LIFELINE.PY!",
+        "1": "YOU ARE ON THE LATEST",
+        "2": "VERSION OF LIFELINE.PY!",
         "2": "1.1-B2.1"
     }
 }
