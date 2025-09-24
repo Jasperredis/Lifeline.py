@@ -3,6 +3,8 @@
 # Welcome to *Lifeline.py*
 > **Note:** This is **NOT** the README that comes with the regular install. To find that, please check [PACKAGED-README.md](github/PACKAGED-README.md).
 
+**Notice**: This game, *Lifeline.py*, is an independent project. It is **not affiliated with or related to any other game** titled “Lifeline” (such as *Lifeline* by Sony Computer Entertainment for the PlayStation 2 (2003) or *Lifeline* by Three Minute Games for mobile and computer).​
+
 ## What is this README for?
 This is the repository-specific README for Lifeline.py, providing important information about the development process:  
 - The main source file in this repo is almost **always** in **early access** and still under active development.
